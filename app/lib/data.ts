@@ -1,3 +1,4 @@
+import { db } from '@vercel/postgres';
 import {
   CustomerField,
   CustomersTableType,
@@ -7,8 +8,7 @@ import {
   Revenue,
 } from './definitions';
 import { formatCurrency } from './utils';
-import { revenue } from './placeholder-data';
-import { client } from '../query/route';
+const client = await db.connect();
 
 
 export async function fetchRevenue() {
